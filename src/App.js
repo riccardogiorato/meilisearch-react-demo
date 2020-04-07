@@ -1,21 +1,75 @@
 import React from "react";
-import "./App.css";
 
 function App() {
   return (
-    <div className="App bg-blue">
-      <div>
-        <input
-          type="search"
-          name="serch"
-          placeholder="Search"
-          className="bg-white h-10 px-5 rounded-full text-sm focus:outline-none border border-gray-300 rounded"
-        />
-        <button type="submit" className="mt-3 mr-4">
-          <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 56.966 56.966" xmlSpace="preserve" width="512px" height="512px">
-      <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"/>
-    </svg>
-        </button>
+    <div className="mx-auto">
+      <div class="header font-sans text-white bg-cover items-center justify-center">
+        <header class="py-12">
+          <img
+            class="h-16 w-auto items-center justify-center p-4 mx-auto"
+            src="https://www.meilisearch.com/_nuxt/img/c909a8c.svg"
+            style={{ filter: "invert(100%)" }}
+          />
+          <h1 class="flex flex-wrap flex-grow text-3xl w-full justify-center p-4">
+            Stop looking for an item — find it.
+          </h1>
+          <div class="border rounded overflow-hidden w-full flex justify-center mx-auto searchBox">
+            <button class="flex items-center justify-center px-4 shadow bg-white text-black">
+              <svg
+                class="h-4 w-4 text-grey-dark"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+              </svg>
+            </button>
+            <input
+              type="text"
+              class="px-6 py-2 w-full text-black"
+              placeholder="Product, sport, color, …"
+            />
+          </div>
+        </header>
+        <div class="flex flex-wrap searchResults">
+          <div class="w-full sm:w-1/2 md:w-1/3 p-3">
+            <div class="rounded overflow-hidden shadow-lg">
+              <img
+                class="w-full h-48 object-cover"
+                src="https://tailwindcss.com/img/jonathan.jpg"
+                alt="Sunset in the mountains"
+              />
+              <div class="px-6 py-3">
+                <div class="font-bold text-xl mb-2 text-gray-800">The Coldest Sunset</div>
+                <p class="text-gray-700 text-sm text-justify">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Voluptatibus quia, nulla! Maiores et perferendis eaque.
+                </p>
+                <p class="text-black text-xl font-bold text-base py-2">
+                $ 39,99
+                </p>
+ 
+              <div class="py-2">
+                <span class="inline-block bg-gray-200 rounded-full px-3 my-1 py-1 text-sm font-semibold text-gray-700 mr-2">
+                  #photography
+                </span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 my-1 py-1 text-sm font-semibold text-gray-700 mr-2">
+                  #travel
+                </span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 my-1 py-1 text-sm font-semibold text-gray-700">
+                  #winter
+                </span>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full sm:w-1/2 md:w-1/3 px-3">
+            <div class="bg-gray-400 h-20"></div>
+          </div>
+          <div class="w-full sm:w-1/2 md:w-1/3 px-3">
+            <div class="bg-gray-400 h-20"></div>
+          </div>
+        </div>
       </div>
     </div>
   );

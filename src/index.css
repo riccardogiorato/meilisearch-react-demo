@@ -7,7 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header{
+  height: 300px;
+  background: url("https://react-instantsearch.netlify.com/examples/e-commerce/assets/cover.png");
+}
+
+.searchBox {
+  height: 64px;
+  max-width: 740px;
 }
