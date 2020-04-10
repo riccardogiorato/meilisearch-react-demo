@@ -10,12 +10,12 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "postinstall": "npm run setup_meili",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "setup_remote": "node backend/remote.js",
-    "setup_local": "cd backend && yarn docker_install && node index.js"
+    "setup_meili": "cd backend && npm run docker_install && node src/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
