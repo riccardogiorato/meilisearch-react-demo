@@ -10,6 +10,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "postinstall": "npm run setup_meili",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
