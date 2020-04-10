@@ -8,9 +8,9 @@ body {
 }
 
 .header {
-  min-height: 400px;
+  min-height: 450px;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url("https://source.unsplash.com/featured/?gym");
+    url("/cover.jpg");
   background-size: cover !important;
 }
 
