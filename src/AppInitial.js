@@ -1,67 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-import MeiliSearch from "meilisearch";
-
-const client = new MeiliSearch({
-  host: "http://127.0.0.1:7700/",
-});
-
-const index = client.getIndex("decathlon");
+// TODO configure the MeiliSearch Client 
 
 function App() {
   const [searchedWord, setSearch] = useState("dumbell");
   const [resultSearch, setResults] = useState([]);
   const [resultCards, setCards] = useState([]);
 
-  useEffect(() => {
-    // Create an scoped async function in the hook
-    async function searchWithMeili() {
-      const search = await index.search(searchedWord, {
-        limit: 24,
-        attributesToHighlight: "name",
-      });
-      setResults(search.hits);
-    }
-    // Execute the created function directly
-    searchWithMeili();
-  }, [searchedWord]);
+  // TODO add function to send searchedWord to MeiliSearch when
 
-  useEffect(() => {
-    let arrayItems = [];
-    for (let i = 0; i < resultSearch.length; i++) {
-      const product = resultSearch[i];
-      arrayItems.push(
-        <div class="flex w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 p-3">
-          <a
-            href={product.url}
-            class="flex-1 rounded overflow-hidden shadow-lg"
-          >
-            <img
-              class="w-full h-48 object-cover"
-              src={product.images}
-              alt={product.name}
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = "/wide_logo.png";
-              }}
-            />
-            <div class="px-6 py-3">
-              <div class="font-bold text-sm mb-1 text-gray-600 capitalize">
-                {product.category}
-              </div>
-              <div class="font-bold text-xl mb-2 text-gray-800">
-                {product.vendor} - {product.name.substr(0, 20)}
-              </div>
-              <p class="text-black text-xl font-bold text-base py-2">
-                $ {product.price}
-              </p>
-            </div>
-          </a>
-        </div>
-      );
-    }
-    setCards(arrayItems);
-  }, [resultSearch]);
+  // TODO add function to parse the JSON object
+  // of the resultSearch to resultCards components to display
 
   return (
     <div className="mx-auto">
@@ -97,7 +46,6 @@ function App() {
           </div>
         </header>
       </div>
-
       <div>
         <div class="flex flex-wrap searchResults">{resultCards}</div>
       </div>
