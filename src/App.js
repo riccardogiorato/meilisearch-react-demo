@@ -16,10 +16,7 @@ function App() {
   useEffect(() => {
     // Create an scoped async function in the hook
     async function searchWithMeili() {
-      const search = await index.search(searchedWord, {
-        limit: 24,
-        attributesToHighlight: "name",
-      });
+      const search = await index.search(searchedWord);
       setResults(search.hits);
     }
     // Execute the created function directly
