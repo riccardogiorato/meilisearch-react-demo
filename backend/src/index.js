@@ -17,7 +17,18 @@ const MeiliSearch = require("meilisearch");
 
     const index = await meili.getIndex("decathlon");
 
-    await index.addDocuments(decathlon);
+    function chunkArrayInGroups(arr, size) {
+      var myArray = [];
+      for(var i = 0; i < arr.length; i += size) {
+        myArray.push(arr.slice(i, i+size));
+      }
+      return myArray;
+    }
+
+    const groups = chunkArrayInGroups(decathlon,20)
+
+    for(let i=0;i< groups.length;i++)
+    await index.addDocuments(groups[i]);
 
     const newSettings = {
       rankingRules: [
