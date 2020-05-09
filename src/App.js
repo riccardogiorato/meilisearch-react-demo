@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import MeiliSearch from "meilisearch";
 
 const client = new MeiliSearch({
-  host: "http://178.62.201.86",
+  host: "https://meilireactdemo.ml/",
   apiKey: "68a41412537b5812b9e94624a4c31d309e2719ed42575bd0b92d29dbd5936cb3"
 });
 
