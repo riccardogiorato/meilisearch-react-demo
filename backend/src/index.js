@@ -7,18 +7,14 @@ const MeiliSearch = require("meilisearch");
     };
 
     const meili = new MeiliSearch(config);
-
-    //const indexDelete = await meili.getIndex("decathlon");
-    //indexDelete.deleteIndex();
-
-    await meili.createIndex({ uid: "decathlon", primaryKey: "id" });
-
+    
+    await meili.isHealthy()
+    await meili.createIndex('decathlon', { primaryKey: "id" }); 
+    
     const decathlon = require("../decathlon.json");
-
     const index = await meili.getIndex("decathlon");
-
+    
     await index.addDocuments(decathlon);
-
     const newSettings = {
       rankingRules: [
         "typo",
@@ -28,15 +24,6 @@ const MeiliSearch = require("meilisearch");
         "wordsPosition",
         "exactness",
         "desc(creation_date)"
-      ],
-      searchableAttributes: ["name", "vendor", "category", "tags"],
-      displayedAttributes: [
-        "name",
-        "vendor",
-        "category",
-        "tags",
-        "images",
-        "url"
       ]
     };
 
@@ -44,6 +31,7 @@ const MeiliSearch = require("meilisearch");
 
     console.dir(await index.getSettings());
   } catch (e) {
+    console.error(e);
     console.log("Meili error: ", e.message);
   }
 })();

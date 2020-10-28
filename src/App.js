@@ -9,7 +9,7 @@ const client = new MeiliSearch({
 const index = client.getIndex("decathlon");
 
 function App() {
-  const [searchedWord, setSearch] = useState("dumbell");
+  const [searchedWord, setSearch] = useState("");
   const [resultSearch, setResults] = useState([]);
   const [resultCards, setCards] = useState([]);
 
@@ -18,7 +18,7 @@ function App() {
     async function searchWithMeili() {
       const search = await index.search(searchedWord, {
         limit: 24,
-        attributesToHighlight: "name",
+        attributesToHighlight: ["name"],
       });
       setResults(search.hits);
     }
