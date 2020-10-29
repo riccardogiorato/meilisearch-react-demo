@@ -9,14 +9,17 @@ const client = new MeiliSearch({
 const index = client.getIndex("decathlon");
 
 function App() {
-  const [searchedWord, setSearch] = useState("dumbell");
+  const [searchedWord, setSearch] = useState("");
   const [resultSearch, setResults] = useState([]);
   const [resultCards, setCards] = useState([]);
 
   useEffect(() => {
     // Create an scoped async function in the hook
     async function searchWithMeili() {
-      const search = await index.search(searchedWord);
+      const search = await index.search(searchedWord, {
+        limit: 24,
+        attributesToHighlight: ["name"],
+      });
       setResults(search.hits);
     }
     // Execute the created function directly

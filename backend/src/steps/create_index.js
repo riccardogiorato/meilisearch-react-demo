@@ -8,8 +8,8 @@ const MeiliSearch = require("meilisearch");
 
     const meili = new MeiliSearch(config);
 
-    await meili.createIndex({ uid: "decathlon", primaryKey: "id" });
-
+    await meili.createIndex("decathlon", { primaryKey: "id" });
+    
   } catch (e) {
     console.log("Meili error: ", e.message);
   }

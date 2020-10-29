@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   meilisearch_tutorial:
-    image: getmeili/meilisearch:v0.9.0
+    image: getmeili/meilisearch:latest
     restart: always
     volumes:
     - ./data.ms:/data.ms

@@ -19,15 +19,6 @@ const MeiliSearch = require("meilisearch");
         "wordsPosition",
         "exactness",
         "desc(creation_date)"
-      ],
-      searchableAttributes: ["name", "vendor", "category", "tags"],
-      displayedAttributes: [
-        "name",
-        "vendor",
-        "category",
-        "tags",
-        "images",
-        "url"
       ]
     };
 
